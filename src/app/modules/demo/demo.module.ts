@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
 import {DemoComponent} from './demo.component';
+import { ApiService } from '../../services/api.service';
 
 @NgModule({
     declarations: [
@@ -10,10 +13,10 @@ import {DemoComponent} from './demo.component';
         DemoComponent
     ],
     imports: [ // import Angular's modules
-        FormsModule,
+        FormsModule, HttpModule, CommonModule
     ],
     providers: [ // expose our Services and Providers into Angular's dependency injection
-
+        ApiService
     ]
 })
 

@@ -9,7 +9,14 @@ import { ApiService } from '../../services/api.service';
 })
 
 export class DemoComponent {
+    public listDoc:any[];
     constructor(private apiService : ApiService){
-        console.log(apiService.getDocs());
+        this.listDoc = [];
+
+        apiService.getDocs().subscribe((response:any) => {
+            this.listDoc = response;
+            console.log(this.listDoc);
+        });
+
     }
 }
