@@ -14,11 +14,9 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-import { XLarge } from './home/x-large';
-import { DemoModule } from './modules/demo/demo.module';
+import { HomeModule } from './modules/home/home.module';
+import { NoContentComponent } from './modules/no-content';
+import { XLarge } from './modules/home/x-large';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -39,8 +37,6 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
-    HomeComponent,
     NoContentComponent,
     XLarge
   ],
@@ -49,7 +45,7 @@ type StoreType = {
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-      DemoModule
+      HomeModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
