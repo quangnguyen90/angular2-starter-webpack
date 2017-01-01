@@ -30,6 +30,8 @@ export class HomeDashBoardComponent implements OnInit{
 //            "info": true,
 //            "autoWidth": false
             });
+            //$.AdminLTE.layout.activate();
+            //console.log($.AdminLTE.layout.activate());
         })
     }
 

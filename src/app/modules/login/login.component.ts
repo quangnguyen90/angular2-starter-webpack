@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LocalStorageService } from 'angular-2-local-storage';
 import {HelperService} from "../../services/helper/helper.service";
+import {Constants} from "../../services/const/const.service";
 
 declare var $:any;
 
@@ -37,5 +38,10 @@ export class LoginComponent implements OnInit, OnDestroy{
 
     constructor (private localStorageService: LocalStorageService, private _helper: HelperService) {
         this.body = document.getElementsByTagName('body')[0];
+    }
+
+    actionLogin(){
+        this._helper.getLocalStorage().set(Constants.KEY_TOKEN, 'kaka')
+        this._helper.redirectTo('');
     }
 }
