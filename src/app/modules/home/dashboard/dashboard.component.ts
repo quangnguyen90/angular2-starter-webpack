@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'angular-2-local-storage';
 import {HelperService} from "../../../services/helper/helper.service";
 
+declare var $:any;
+
 @Component({
     // The selector is what angular internally uses
     // for `document.querySelectorAll(selector)` in our index.html
@@ -17,7 +19,19 @@ import {HelperService} from "../../../services/helper/helper.service";
     // Every Angular template is first compiled by the browser before Angular runs it's compiler
     templateUrl: 'dashboard.html'
 })
-export class HomeDashBoardComponent {
+export class HomeDashBoardComponent implements OnInit{
+    ngOnInit():void {
+        this._helperService.execCallBackAfterRender(function(){
+            $('.dataTable').DataTable({
+//            "paging": true,
+//            "lengthChange": false,
+//            "searching": false,
+//            "ordering": true,
+//            "info": true,
+//            "autoWidth": false
+            });
+        })
+    }
 
     constructor (private _helperService: HelperService) {
         this._helperService.checkAuth()
