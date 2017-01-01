@@ -1,8 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
 import { AppState } from '../../app.service';
-import { Title } from './title';
-import { XLarge } from './x-large';
+import { Title } from './title/title.service';
+import { XLarge } from './x-large/x-large.directive';
 import { SideBarComponent } from './sidebar/sidebar.component';
 
 @Component({

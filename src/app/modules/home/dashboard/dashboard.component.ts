@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'angular-2-local-storage';
+import {HelperService} from "../../../services/helper/helper.service";
 
 @Component({
     // The selector is what angular internally uses
@@ -7,7 +9,6 @@ import { Component } from '@angular/core';
     selector: 'home-dashboard',  // <home></home>
     // We need to tell Angular's Dependency Injection which providers are in our app.
     providers: [
-
     ],
     // Our list of styles in our component. We may add more to compose many styles together
     styleUrls: [
@@ -18,4 +19,7 @@ import { Component } from '@angular/core';
 })
 export class HomeDashBoardComponent {
 
+    constructor (private _helperService: HelperService) {
+        this._helperService.checkAuth()
+    }
 }

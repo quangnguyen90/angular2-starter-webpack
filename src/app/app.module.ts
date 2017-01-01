@@ -1,9 +1,10 @@
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule, ApplicationRef, ReflectiveInjector, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -15,8 +16,10 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeModule } from './modules/home/home.module';
-import { NoContentComponent } from './modules/no-content';
-import { XLarge } from './modules/home/x-large';
+import { NoContentComponent } from './modules/no-content/no-content.component';
+import { XLarge } from './modules/home/x-large/x-large.directive';
+import {LoginModule} from "./modules/login/login.module";
+import {HelperService} from "./services/helper/helper.service";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,19 +44,28 @@ type StoreType = {
     XLarge
   ],
   imports: [ // import Angular's modules
+    LocalStorageModule.withConfig({
+      prefix: 'my-app',
+      storageType: 'localStorage'
+    }),
+
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-      HomeModule
+      HomeModule,
+      LoginModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    HelperService
   ]
 })
 export class AppModule {
-  constructor(public appRef: ApplicationRef, public appState: AppState) {}
+  constructor(public appRef: ApplicationRef, public appState: AppState) {
+
+  }
 
   hmrOnInit(store: StoreType) {
     if (!store || !store.state) return;
