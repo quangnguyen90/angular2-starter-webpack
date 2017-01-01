@@ -1,12 +1,12 @@
 import {
-  inject,
-  TestBed
+    inject,
+    TestBed
 } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import {
-  BaseRequestOptions,
-  ConnectionBackend,
-  Http
+    BaseRequestOptions,
+    ConnectionBackend,
+    Http
 } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
@@ -23,7 +23,7 @@ describe('Home', () => {
       MockBackend,
       {
         provide: Http,
-        useFactory: function(backend: ConnectionBackend, defaultOptions: BaseRequestOptions) {
+        useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) => {
           return new Http(backend, defaultOptions);
         },
         deps: [MockBackend, BaseRequestOptions]

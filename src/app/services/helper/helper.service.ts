@@ -16,7 +16,7 @@ export class HelperService {
         }
         else{
             console.log('Khong Auth')
-            this.redirectTo('LoginPage');
+            //this.redirectTo('LoginPage');
         }
     }
 
