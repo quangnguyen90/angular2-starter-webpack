@@ -30,16 +30,10 @@ export class HomeDashBoardComponent implements OnInit{
     rows = [];
 
     ngOnInit():void {
+        //this._helperService.checkAuth();
         this._helperService.execCallBackAfterRender(function(){
-            $('.dataTable').DataTable({
-//            "paging": true,
-//            "lengthChange": false,
-//            "searching": false,
-//            "ordering": true,
-//            "info": true,
-//            "autoWidth": false
-            });
-        })
+
+        });
     }
 
     private refreshDataTable(){
@@ -47,7 +41,7 @@ export class HomeDashBoardComponent implements OnInit{
     }
 
     constructor (private _helperService: HelperService) {
-        this._helperService.checkAuth();
+
         this._apiService = this._helperService.getApiService();
         this._apiService.sendGet(Constants.URL.HOME, null).subscribe((res:Response) => {
             let data = res.json();

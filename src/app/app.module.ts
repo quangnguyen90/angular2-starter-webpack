@@ -23,6 +23,7 @@ import {HelperService} from "./services/helper/helper.service";
 import {ApiService} from "./services/api/api.service";
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {SimpleNotificationsModule} from "angular2-notifications/components";
+import {AuthGuard} from "./guards/auth/auth.guard";
 
 
 // Application wide providers
@@ -67,7 +68,8 @@ type StoreType = {
     ENV_PROVIDERS,
     APP_PROVIDERS,
     HelperService,
-    ApiService
+    ApiService,
+      AuthGuard
   ]
 })
 export class AppModule {

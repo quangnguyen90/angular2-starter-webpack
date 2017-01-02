@@ -46,7 +46,7 @@ export class HomeComponent {
   }
 
   logout(){
-    this._helper.getLocalStorage().remove(Constants.KEY_TOKEN);
+    this._helper.getLocalStorage().remove(Constants.KEY.TOKEN);
     this._helper.checkAuth();
   }
 }
