@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 import {HelperService} from "../../../services/helper/helper.service";
+import {ApiService} from "../../../services/api/api.service";
+import {Constants} from "../../../services/const/const.service";
 
 declare var $:any;
 
@@ -20,6 +23,12 @@ declare var $:any;
     templateUrl: 'dashboard.html'
 })
 export class HomeDashBoardComponent implements OnInit{
+    private _apiService:ApiService;
+    public listAdvices = [];
+    public sumQuestion;
+
+    rows = [];
+
     ngOnInit():void {
         this._helperService.execCallBackAfterRender(function(){
             $('.dataTable').DataTable({
@@ -30,12 +39,25 @@ export class HomeDashBoardComponent implements OnInit{
 //            "info": true,
 //            "autoWidth": false
             });
-            //$.AdminLTE.layout.activate();
-            //console.log($.AdminLTE.layout.activate());
         })
     }
 
+    private refreshDataTable(){
+
+    }
+
     constructor (private _helperService: HelperService) {
-        this._helperService.checkAuth()
+        this._helperService.checkAuth();
+        this._apiService = this._helperService.getApiService();
+        this._apiService.sendGet(Constants.URL.HOME, null).subscribe((res:Response) => {
+            let data = res.json();
+            this.rows = data.advices;
+            this.sumQuestion = data.sumQuestion;
+            this.refreshDataTable();
+        });
+    }
+
+    getPercent(now, sum){
+        return (now/sum) * 100;
     }
 }

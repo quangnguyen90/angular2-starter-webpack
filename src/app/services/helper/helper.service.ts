@@ -5,6 +5,8 @@ import {Constants} from '../const/const.service'
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import {ApiService} from "../api/api.service";
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+import {NotificationsService} from "angular2-notifications";
 
 declare var $:any;
 
@@ -12,15 +14,16 @@ declare var $:any;
 export class HelperService {
     constructor(
         private _localStorageService:LocalStorageService,
-        private router:Router,
-        private activatedRoute:ActivatedRoute,
-        private _apiService:ApiService
+        private _router:Router,
+        private _activatedRoute:ActivatedRoute,
+        private _apiService:ApiService,
+        private _slimLoadingBarService: SlimLoadingBarService,
+        private _notificationService: NotificationsService
     ) {
-
     }
 
     checkAuth() {
-        if(this._localStorageService.get(Constants.KEY_TOKEN)){
+        if(this._localStorageService.get(Constants.KEY.TOKEN)){
             console.log('Co Auth');
         }
         else{
@@ -30,8 +33,8 @@ export class HelperService {
     }
 
     execCallBackAfterRender(func : Function){
-        let routeState = this.router.events
-            .filter(event => event instanceof NavigationEnd).map(() => this.activatedRoute);
+        let routeState = this._router.events
+            .filter(event => event instanceof NavigationEnd).map(() => this._activatedRoute);
         let sub = routeState.subscribe((event) => {
             func();
             if($.AdminLTE.layout !== undefined){
@@ -42,7 +45,7 @@ export class HelperService {
     }
 
     redirectTo(nameRoute : String) {
-        this.router.navigate([nameRoute]);
+        this._router.navigate([nameRoute]);
     }
 
     getLocalStorage() : LocalStorageService {
@@ -51,5 +54,17 @@ export class HelperService {
 
     getApiService():ApiService {
         return this._apiService;
+    }
+
+    getSlimLoadingBar():SlimLoadingBarService{
+        return this._slimLoadingBarService;
+    }
+
+    getNotification():NotificationsService{
+        return this._notificationService;
+    }
+
+    getRouter():Router{
+        return this._router;
     }
 }

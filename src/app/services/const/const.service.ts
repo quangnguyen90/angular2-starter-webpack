@@ -1,3 +1,10 @@
 export const Constants:any = {
-    KEY_TOKEN:'token'
+    KEY:{
+        TOKEN:'token'
+    },
+    //===== URL API
+    URL:{
+        LOGIN:'/login',
+        HOME:'',
+    }
 };

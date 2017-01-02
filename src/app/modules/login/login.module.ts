@@ -4,6 +4,7 @@ import {NgModule} from "@angular/core";
 import {ROUTES} from "../../app.routes";
 import {RouterModule, PreloadAllModules} from "@angular/router";
 import {LoginComponent} from "./login.component";
+
 @NgModule({
     imports: [
         BrowserModule,

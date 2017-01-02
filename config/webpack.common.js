@@ -151,6 +151,11 @@ module.exports = function (options) {
           test: /\.scss$/,
           exclude: /node_modules/,
           loaders: ['raw-loader', 'sass-loader'] // sass-loader not scss-loader
+        },
+
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'file-loader?name=public/fonts/[name].[ext]'
         }
 
       ],

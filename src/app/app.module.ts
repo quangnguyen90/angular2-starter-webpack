@@ -21,6 +21,9 @@ import { XLarge } from './modules/home/x-large/x-large.directive';
 import {LoginModule} from "./modules/login/login.module";
 import {HelperService} from "./services/helper/helper.service";
 import {ApiService} from "./services/api/api.service";
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import {SimpleNotificationsModule} from "angular2-notifications/components";
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -55,8 +58,11 @@ type StoreType = {
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
       HomeModule,
-      LoginModule
+      LoginModule,
+    SlimLoadingBarModule.forRoot(),
+    SimpleNotificationsModule
   ],
+  exports: [BrowserModule, SlimLoadingBarModule],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
