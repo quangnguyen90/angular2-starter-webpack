@@ -50,9 +50,12 @@ export class AppComponent {
 
     this._helper.getRouter().events.subscribe((event:Event) => {
       if(event instanceof NavigationStart) {
+        console.log('Route start');
+        console.log(event);
         this._helper.getSlimLoadingBar().start()
       }
       if(event instanceof NavigationEnd) {
+        console.log('Route changed');
         this._helper.getSlimLoadingBar().complete()
       }
       // NavigationEnd

@@ -53,9 +53,7 @@ export class LoginComponent implements OnInit, OnDestroy{
     }
 
     actionLogin(){
-        this._slimLoadingBar.start(() => {
-
-        });
+        this._slimLoadingBar.start();
 
         this._helper.getApiService().sendPost(Constants.URL.LOGIN, {
             email: this.login.email,
