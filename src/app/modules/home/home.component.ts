@@ -4,6 +4,8 @@ import { AppState } from '../../app.service';
 import { Title } from './title/title.service';
 import { XLarge } from './x-large/x-large.directive';
 import { SideBarComponent } from './sidebar/sidebar.component';
+import {HelperService} from "../../services/helper/helper.service";
+import {Constants} from "../../services/const/const.service";
 
 @Component({
   // The selector is what angular internally uses
@@ -26,7 +28,7 @@ export class HomeComponent {
   // Set our default values
   localState = { value: '' };
   // TypeScript public modifiers
-  constructor(public appState: AppState, public title: Title) {
+  constructor(public appState: AppState, public title: Title, private _helper:HelperService) {
 
   }
 
@@ -39,5 +41,10 @@ export class HomeComponent {
     console.log('submitState', value);
     this.appState.set('value', value);
     this.localState.value = '';
+  }
+
+  logout(){
+    this._helper.getLocalStorage().remove(Constants.KEY_TOKEN);
+    this._helper.checkAuth();
   }
 }

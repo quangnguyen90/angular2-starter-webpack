@@ -20,6 +20,7 @@ import { NoContentComponent } from './modules/no-content/no-content.component';
 import { XLarge } from './modules/home/x-large/x-large.directive';
 import {LoginModule} from "./modules/login/login.module";
 import {HelperService} from "./services/helper/helper.service";
+import {ApiService} from "./services/api/api.service";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -59,7 +60,8 @@ type StoreType = {
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    HelperService
+    HelperService,
+    ApiService
   ]
 })
 export class AppModule {

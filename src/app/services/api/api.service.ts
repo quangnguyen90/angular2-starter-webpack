@@ -1,19 +1,28 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
-import {Observable} from '../../../../node_modules/rxjs/Rx.d';
-
-// Import RxJs required methods
-import 'rxjs/add/operator/map.d';
-import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ApiService {
-    private baseUrl = 'http://5862365a4dad0912007f547d.mockapi.io/api';
+    private baseUrl = 'http://tour.local/api';
 
     constructor(private _http:Http) {
     }
 
-    getDocs():Observable<any[]> {
-        return this._http.get(this.baseUrl + '/docs').map((response:Response)=>response.json());
+    protected applyHeader(headers:Headers){
+        headers.append('Content-type','application/json')
+    }
+
+    postLogin(email: string, password: string): any {
+        let data = {
+            "email": email,
+            "password": password
+        };
+        let body = JSON.stringify(data);
+        let headers = new Headers();
+        this.applyHeader(headers);
+        return this._http.post(this.baseUrl + '/login', body, {headers: headers}).map((response:Response)=>response);
     }
 }

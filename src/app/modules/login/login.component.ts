@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Response } from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 import {HelperService} from "../../services/helper/helper.service";
 import {Constants} from "../../services/const/const.service";
@@ -41,7 +42,10 @@ export class LoginComponent implements OnInit, OnDestroy{
     }
 
     actionLogin(){
-        this._helper.getLocalStorage().set(Constants.KEY_TOKEN, 'kaka')
-        this._helper.redirectTo('');
+        //this._helper.getLocalStorage().set(Constants.KEY_TOKEN, 'kaka')
+        //this._helper.redirectTo('');
+        this._helper.getApiService().postLogin('phuc.ps.89@gmail.com','123456').subscribe((res:Response) => {
+            console.log(res.json());
+        });
     }
 }

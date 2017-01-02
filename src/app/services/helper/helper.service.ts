@@ -4,6 +4,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import {Constants} from '../const/const.service'
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
+import {ApiService} from "../api/api.service";
 
 declare var $:any;
 
@@ -12,7 +13,8 @@ export class HelperService {
     constructor(
         private _localStorageService:LocalStorageService,
         private router:Router,
-        private activatedRoute:ActivatedRoute
+        private activatedRoute:ActivatedRoute,
+        private _apiService:ApiService
     ) {
 
     }
@@ -45,5 +47,9 @@ export class HelperService {
 
     getLocalStorage() : LocalStorageService {
         return this._localStorageService;
+    }
+
+    getApiService():ApiService {
+        return this._apiService;
     }
 }
