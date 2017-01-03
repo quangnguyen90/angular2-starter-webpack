@@ -4,6 +4,7 @@ export const Constants:any = {
     },
     //===== URL API
     URL:{
+        API:'http://tour.local/api',
         LOGIN:'/login',
         HOME:'',
     }

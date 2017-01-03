@@ -19,7 +19,7 @@ import {Constants} from "../const/const.service";
 
 @Injectable()
 export class ApiService {
-    private _baseUrl = 'http://tour.local/api';
+    private _baseUrl = Constants.URL.API;
 
     constructor(
         private _http:Http,
