@@ -11,11 +11,12 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
         if(this._localStorage.get(Constants.KEY.TOKEN)) {
-            return true;
+            return Observable.of(true);
         }
         else {
+            // this._router.dispose();
             this._router.navigate(['login']);
-            return false;
+            return Observable.of(false);
         }
     }
 }
