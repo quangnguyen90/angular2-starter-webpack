@@ -19,9 +19,6 @@ import {Constants} from "../../services/const/const.service";
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: [
       'home.component.css',
-      './../../../../node_modules/@swimlane/ngx-datatable/release/datatable.css',
-      './../../../../node_modules/@swimlane/ngx-datatable/release/material.css',
-      './../../../../node_modules/@swimlane/ngx-datatable/release/assets/icons.css',
   ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: 'home.component.html',
@@ -36,16 +33,5 @@ export class HomeComponent {
   ngOnInit() {
     console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
-  }
-
-  submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
-  }
-
-  logout(){
-    this._helper.getLocalStorage().remove(Constants.KEY.TOKEN);
-    location.reload();
   }
 }
