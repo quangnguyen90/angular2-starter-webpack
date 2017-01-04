@@ -3,7 +3,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import { AppState } from '../../app.service';
 import { Title } from './title/title.service';
 import { XLarge } from './x-large/x-large.directive';
-import { SideBarComponent } from './sidebar/sidebar.component';
 import {HelperService} from "../../services/helper/helper.service";
 import {Constants} from "../../services/const/const.service";
 
