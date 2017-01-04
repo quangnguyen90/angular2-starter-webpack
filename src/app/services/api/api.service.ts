@@ -70,6 +70,32 @@ export class ApiService {
             .catch(err => this.handleError(err));
     }
 
+    public sendPostWithFiles(uri:string, postData:Object, files:File[], headers?:Headers){
+        let url = this.getFullUrl(uri);
+
+        let httpHeaders = this.getDefaultHeader(headers);
+        httpHeaders.delete('Content-type');
+        httpHeaders.append("enctype","multipart/form-data");
+        let formData:FormData = new FormData();
+
+        formData.append('files', files[0], files[0].name);
+        // For multiple files
+        // for (let i = 0; i < files.length; i++) {
+        //     formData.append(`files[]`, files[i], files[i].name);
+        // }
+        if(postData !=="" && postData !== undefined && postData !==null){
+            for (var property in postData) {
+                if (postData.hasOwnProperty(property)) {
+                    formData.append(property, postData[property]);
+                }
+            }
+        }
+
+        return this._http.post(url, formData, {headers: httpHeaders})
+            .map((response:Response)=>response)
+            .catch(err => this.handleError(err));
+    }
+
     private handleError (error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;
