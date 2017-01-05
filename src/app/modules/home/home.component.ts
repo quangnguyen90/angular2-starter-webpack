@@ -6,6 +6,8 @@ import { XLarge } from './x-large/x-large.directive';
 import {HelperService} from "../../services/helper/helper.service";
 import {Constants} from "../../services/const/const.service";
 
+declare var $:any;
+
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
@@ -17,8 +19,8 @@ import {Constants} from "../../services/const/const.service";
     Title
   ],
   // Our list of styles in our component. We may add more to compose many styles together
-  styleUrls: [
-      'home.component.css',
+  styles: [
+
   ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: 'home.component.html',
@@ -33,5 +35,7 @@ export class HomeComponent {
   ngOnInit() {
     console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
+    $('.modal').modal();
+    $('.materialboxed').materialbox();
   }
 }

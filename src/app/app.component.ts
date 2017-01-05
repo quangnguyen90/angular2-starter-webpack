@@ -15,9 +15,8 @@ import { NavigationEnd, NavigationStart } from '@angular/router';
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css',
-      // require('gentelella/vendors/bootstrap/dist/css/bootstrap.min.css')
+  styles: [
+    require('materialize-css/dist/css/materialize.min.css'),
   ],
   template: `
    
@@ -48,7 +47,7 @@ export class AppComponent {
   constructor(
     public appState: AppState, private _helper:HelperService) {
 
-    this._helper.getRouter().events.subscribe((event:Event) => {
+    this._helper.getRouter().events.subscribe((event) => {
       if(event instanceof NavigationStart) {
 
         this._helper.getSlimLoadingBar().start()

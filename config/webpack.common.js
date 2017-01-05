@@ -156,7 +156,7 @@ module.exports = function (options) {
         {
           test: /\.(eot|svg|ttf|woff|woff2)$/,
           loader: 'file-loader?name=public/fonts/[name].[ext]'
-        }
+        },
 
       ],
 
@@ -174,6 +174,13 @@ module.exports = function (options) {
         prettyPrint: true
       }),
 
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery',
+        'window.$': 'jquery',
+        'window.jQuery': 'jquery',
+      }),
       /*
        * Plugin: ForkCheckerPlugin
        * Description: Do type checking in a separate process, so webpack don't need to wait.
