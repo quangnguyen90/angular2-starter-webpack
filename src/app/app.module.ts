@@ -1,29 +1,29 @@
-import { NgModule, ApplicationRef, ReflectiveInjector, Injector } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-import { LocalStorageModule } from 'angular-2-local-storage';
+import {NgModule, ApplicationRef, ReflectiveInjector, Injector, Provider} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {RouterModule, PreloadAllModules} from '@angular/router';
+import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass/hmr';
+import {LocalStorageModule} from 'angular-2-local-storage';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
-import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+import {ENV_PROVIDERS} from './environment';
+import {ROUTES} from './app.routes';
 // App is our top level component
-import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
-import { HomeModule } from './modules/home/home.module';
-import { NoContentComponent } from './modules/no-content/no-content.component';
-import { XLarge } from './modules/home/x-large/x-large.directive';
-import {LoginModule} from "./modules/login/login.module";
+import {AppComponent} from './app.component';
+import {APP_RESOLVER_PROVIDERS} from './app.resolver';
+import {AppState, InternalStateType} from './app.service';
+import {HomeModule} from './modules/home/home.module';
+import {NoContentComponent} from './modules/no-content/no-content.component';
+import {XLarge} from './modules/home/x-large/x-large.directive';
 import {HelperService} from "./services/helper/helper.service";
 import {ApiService} from "./services/api/api.service";
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {SimpleNotificationsModule} from "angular2-notifications/components";
 import {AuthGuard} from "./guards/auth/auth.guard";
+import {ConfigService} from "./services/config/config.service";
 
 
 // Application wide providers
@@ -42,7 +42,7 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     NoContentComponent,
@@ -57,9 +57,8 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-      HomeModule,
-      LoginModule,
+    RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}),
+    HomeModule,
     SlimLoadingBarModule.forRoot(),
     SimpleNotificationsModule
   ],
@@ -69,7 +68,8 @@ type StoreType = {
     APP_PROVIDERS,
     HelperService,
     ApiService,
-      AuthGuard
+    AuthGuard,
+    ConfigService
   ]
 })
 export class AppModule {
@@ -101,7 +101,7 @@ export class AppModule {
     // recreate root elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // save input values
-    store.restoreInputValues  = createInputTransfer();
+    store.restoreInputValues = createInputTransfer();
     // remove styles
     removeNgStyles();
   }

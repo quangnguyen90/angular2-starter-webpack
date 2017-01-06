@@ -1,11 +1,11 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
-import { AppState } from './app.service';
+import {AppState} from './app.service';
 import {HelperService} from "./services/helper/helper.service";
-import { NavigationEnd, NavigationStart } from '@angular/router';
+import {NavigationEnd, NavigationStart} from '@angular/router';
 // import 'gentelella/vendors/bootstrap/dist/css/bootstrap.min.css';
 
 /*
@@ -17,6 +17,7 @@ import { NavigationEnd, NavigationStart } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
   styles: [
     require('materialize-css/dist/css/materialize.min.css'),
+    require('./app.component.css'),
   ],
   template: `
    
@@ -44,17 +45,16 @@ export class AppComponent {
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
 
-  constructor(
-    public appState: AppState, private _helper:HelperService) {
+  constructor(public appState: AppState, private _helper: HelperService) {
 
     this._helper.getRouter().events.subscribe((event) => {
-      if(event instanceof NavigationStart) {
+      if (event instanceof NavigationStart) {
 
-        this._helper.getSlimLoadingBar().start()
+        this._helper.getSlimLoadingBarService().start()
       }
-      if(event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd) {
 
-        this._helper.getSlimLoadingBar().complete()
+        this._helper.getSlimLoadingBarService().complete()
       }
       // NavigationEnd
       // NavigationCancel
