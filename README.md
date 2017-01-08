@@ -65,6 +65,13 @@ cd angular2-webpack-starter
 # install the repo with npm
 npm install
 
+# Copy file environment configuration
+### On Window
+copy config\.env.ts.example config\.env.ts
+
+### On Linux
+cp config/.env.ts.example config/.env.ts
+
 # start the server
 npm start
 
