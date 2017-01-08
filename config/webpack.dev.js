@@ -24,7 +24,8 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
   port: PORT,
   ENV: ENV,
-  HMR: HMR
+  HMR: HMR,
+  APP_ENV: require('../src/.env.ts')
 });
 
 /**
@@ -103,6 +104,7 @@ module.exports = function (options) {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
           'HMR': METADATA.HMR,
+          'APP_ENV' : JSON.stringify(METADATA.APP_ENV),
         }
       }),
 

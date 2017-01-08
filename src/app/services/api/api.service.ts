@@ -27,14 +27,14 @@ export class ApiService {
               private _slimLoadingBar: SlimLoadingBarService,
               private _notify: NotificationsService,
               private _config: ConfigService) {
-    this._baseUrl = this._config.getEnv('URL.API');
+    this._baseUrl = this._config.getAppEnv('URL.API');
   }
 
   protected getDefaultHeader(headerExt?: Headers): Headers {
     let header = new Headers({
       'Content-type': 'application/json'
     });
-    let token = this._localStorage.get(this._config.getEnv('KEY.TOKEN'));
+    let token = this._localStorage.get(this._config.getAppEnv('KEY.TOKEN'));
     if (token) {
       header.append('Authorization', 'Bearer ' + token);
 
@@ -105,7 +105,7 @@ export class ApiService {
       this._notify.error('Error', body.msg);
       errMsg = body.msg;
       if (body.logout === true) {
-        this._localStorage.remove(this._config.getEnv('KEY.TOKEN'));
+        this._localStorage.remove(this._config.getAppEnv('KEY.TOKEN'));
         this._router.navigate(['login']);
       }
 

@@ -28,7 +28,8 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
   port: PORT,
   ENV: ENV,
-  HMR: false
+  HMR: false,
+  APP_ENV: require('../src/.env')
 });
 
 module.exports = function (env) {
@@ -124,6 +125,7 @@ module.exports = function (env) {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
           'HMR': METADATA.HMR,
+          'APP_ENV' : JSON.stringify(METADATA.APP_ENV),
         }
       }),
 
@@ -267,9 +269,9 @@ module.exports = function (env) {
 
       /**
        * Plugin: BundleAnalyzerPlugin
-       * Description: Webpack plugin and CLI utility that represents 
+       * Description: Webpack plugin and CLI utility that represents
        * bundle content as convenient interactive zoomable treemap
-       * 
+       *
        * `npm run build:prod -- --env.analyze` to use
        *
        * See: https://github.com/th0r/webpack-bundle-analyzer
