@@ -37,7 +37,7 @@ export class HelperService {
     return this._localStorageService;
   }
 
-  getApiServiceService(): ApiService {
+  getApiService(): ApiService {
     return this._apiService;
   }
 
