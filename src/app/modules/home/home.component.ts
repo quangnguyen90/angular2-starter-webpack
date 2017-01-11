@@ -20,11 +20,12 @@ export class HomeComponent {
   // Set our default values
   localState = {value: ''};
   // TypeScript public modifiers
-  constructor(public appState: AppState, private _helper: HelperService, private _titleService:Title) {
+  constructor(public appState: AppState, private _helper: HelperService) {
   }
 
   ngOnInit() {
     console.log('hello `Home` component');
-    this._titleService.setTitle('This is a route of Home Component')
+    this._helper.getSeoService().setTitle('This is a route of Home Component');
+    this._helper.getSeoService().setMetaDescription('Meta description of Home Component');
   }
 }

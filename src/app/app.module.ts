@@ -24,6 +24,7 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {SimpleNotificationsModule} from "angular2-notifications/components";
 import {AuthGuard} from "./guards/auth/auth.guard";
 import {ConfigService} from "./services/config/config.service";
+import {SeoService} from "./services/seo/seo.service";
 
 
 // Application wide providers
@@ -69,7 +70,8 @@ type StoreType = {
     HelperService,
     ApiService,
     AuthGuard,
-    ConfigService
+    ConfigService,
+    SeoService
   ]
 })
 export class AppModule {

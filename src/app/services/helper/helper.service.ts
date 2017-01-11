@@ -8,6 +8,7 @@ import {ApiService} from "../api/api.service";
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {NotificationsService} from "angular2-notifications";
 import {ConfigService} from "../config/config.service";
+import {SeoService} from "../seo/seo.service";
 
 @Injectable()
 export class HelperService {
@@ -17,7 +18,8 @@ export class HelperService {
               private _apiService: ApiService,
               private _slimLoadingBarService: SlimLoadingBarService,
               private _notificationService: NotificationsService,
-              private _configService: ConfigService) {
+              private _configService: ConfigService,
+              private _seoService: SeoService) {
   }
 
   execCallBackAfterRender(func: Function) {
@@ -55,5 +57,9 @@ export class HelperService {
 
   getConfigService(): ConfigService {
     return this._configService;
+  }
+
+  getSeoService(): SeoService{
+    return this._seoService;
   }
 }
