@@ -24,7 +24,7 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {SimpleNotificationsModule} from "angular2-notifications/components";
 import {AuthGuard} from "./guards/auth/auth.guard";
 import {ConfigService} from "./services/config/config.service";
-import {MetaModule} from "ng2-meta";
+import {MetaModule, MetaConfig} from "ng2-meta";
 
 
 // Application wide providers
@@ -37,6 +37,16 @@ type StoreType = {
   state: InternalStateType,
   restoreInputValues: () => void,
   disposeOldHosts: () => void
+};
+
+const metaConfig:MetaConfig = {
+  //Append a title suffix such as a site name to all titles
+  //Defaults to false
+  useTitleSuffix: true,
+  defaults: {
+    title: 'Angular 2 Webpack Starter by ' + process.env.APP_ENV.author,
+    titleSuffix: ' | Angular 2',
+  }
 };
 
 /**
@@ -62,7 +72,7 @@ type StoreType = {
     HomeModule,
     SlimLoadingBarModule.forRoot(),
     SimpleNotificationsModule,
-    MetaModule.forRoot()
+    MetaModule.forRoot(metaConfig)
   ],
   exports: [BrowserModule, SlimLoadingBarModule],
   providers: [ // expose our Services and Providers into Angular's dependency injection
