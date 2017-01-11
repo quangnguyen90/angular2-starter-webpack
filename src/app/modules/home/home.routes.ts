@@ -5,5 +5,10 @@ import {AuthGuard} from "../../guards/auth/auth.guard";
 
 export const HomeRoutes: Routes = [
     { path: '',      component: HomeComponent,
+      data: {
+        meta: {
+          disableUpdate: true
+        }
+      }
     },
 ];

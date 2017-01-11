@@ -24,7 +24,7 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {SimpleNotificationsModule} from "angular2-notifications/components";
 import {AuthGuard} from "./guards/auth/auth.guard";
 import {ConfigService} from "./services/config/config.service";
-import {SeoService} from "./services/seo/seo.service";
+import {MetaModule} from "ng2-meta";
 
 
 // Application wide providers
@@ -61,7 +61,8 @@ type StoreType = {
     RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}),
     HomeModule,
     SlimLoadingBarModule.forRoot(),
-    SimpleNotificationsModule
+    SimpleNotificationsModule,
+    MetaModule.forRoot()
   ],
   exports: [BrowserModule, SlimLoadingBarModule],
   providers: [ // expose our Services and Providers into Angular's dependency injection
@@ -71,7 +72,6 @@ type StoreType = {
     ApiService,
     AuthGuard,
     ConfigService,
-    SeoService
   ]
 })
 export class AppModule {

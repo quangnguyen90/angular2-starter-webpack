@@ -25,7 +25,7 @@ export class HomeComponent {
 
   ngOnInit() {
     console.log('hello `Home` component');
-    this._helper.getSeoService().setTitle('This is a route of Home Component');
-    this._helper.getSeoService().setMetaDescription('Meta description of Home Component');
+    this._helper.getMetaService().setTitle('This is a route of Home Component');
+    this._helper.getMetaService().setTag('description','Meta description of Home Component 123132131');
   }
 }
