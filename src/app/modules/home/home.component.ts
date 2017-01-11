@@ -1,11 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
 import {AppState} from '../../app.service';
-import {Title} from './title/title.service';
-import {XLarge} from './x-large/x-large.directive';
 import {HelperService} from "../../services/helper/helper.service";
-
-declare var $: any;
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'home',  // <home></home>
@@ -23,10 +20,11 @@ export class HomeComponent {
   // Set our default values
   localState = {value: ''};
   // TypeScript public modifiers
-  constructor(public appState: AppState, public title: Title, private _helper: HelperService) {
+  constructor(public appState: AppState, private _helper: HelperService, private _titleService:Title) {
   }
 
   ngOnInit() {
     console.log('hello `Home` component');
+    this._titleService.setTitle('This is a route of Home Component')
   }
 }
