@@ -21,7 +21,7 @@ import {XLarge} from './modules/home/x-large/x-large.directive';
 import {HelperService} from "./services/helper/helper.service";
 import {ApiService} from "./services/api/api.service";
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
-import {SimpleNotificationsModule} from "angular2-notifications/components";
+import {SimpleNotificationsModule, NotificationsService} from "angular2-notifications";
 import {AuthGuard} from "./guards/auth/auth.guard";
 import {ConfigService} from "./services/config/config.service";
 import {MetaModule, MetaConfig} from "ng2-meta";
@@ -82,6 +82,7 @@ const metaConfig:MetaConfig = {
     ApiService,
     AuthGuard,
     ConfigService,
+    NotificationsService
   ]
 })
 export class AppModule {
