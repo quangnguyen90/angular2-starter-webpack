@@ -27,7 +27,7 @@ import {ConfigService} from "./services/config/config.service";
 import {NotificationsService} from "angular2-notifications";
 import {MetaModule, MetaConfig} from "ng2-meta";
 import {CrudModule} from './modules/crud/crud.module';
-import {CrudService} from "./services/api/crud.service";
+import {CrudService} from "./services/crud/crud.service";
 
 
 // Application wide providers

@@ -19,7 +19,7 @@ import {Title} from "@angular/platform-browser";
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: 'crud.component.html',
 })
-export class HomeComponent {
+export class CrudComponent {
   // Set our default values
   localState = {value: ''};
   // TypeScript public modifiers
