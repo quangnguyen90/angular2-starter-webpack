@@ -28,7 +28,8 @@ import {NotificationsService} from "angular2-notifications";
 import {MetaModule, MetaConfig} from "ng2-meta";
 import {EmployeeModule} from './modules/employee/employee.module';
 import {EmployeeService} from "./services/employee/employee.service";
-
+import {LoginService} from "./services/auth/login.service";
+import {AuthModule} from "./modules/auth/auth.module";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -74,6 +75,7 @@ const metaConfig:MetaConfig = {
     RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}),
     HomeModule,
     EmployeeModule,
+    AuthModule,
     SlimLoadingBarModule.forRoot(),
     SimpleNotificationsModule,
     MetaModule.forRoot(metaConfig)
@@ -87,7 +89,8 @@ const metaConfig:MetaConfig = {
     AuthGuard,
     ConfigService,
     NotificationsService,
-    EmployeeService
+    EmployeeService,
+    LoginService
   ]
 })
 export class AppModule {
