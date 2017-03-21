@@ -3,6 +3,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {AppState} from '../../app.service';
 import {HelperService} from "../../services/helper/helper.service";
 import {Title} from "@angular/platform-browser";
+import { LoginService } from '../../services/auth/login.service';
 
 @Component({
   selector: 'home',  // <home></home>
@@ -19,13 +20,22 @@ import {Title} from "@angular/platform-browser";
 export class HomeComponent {
   // Set our default values
   localState = {value: ''};
+
+  public isLoggedin: boolean;
+
   // TypeScript public modifiers
-  constructor(public appState: AppState, private _helper: HelperService) {
+  constructor(public appState: AppState, private _helper: HelperService, private loginService: LoginService) {
   }
 
   ngOnInit() {
+    this.isLoggedin = this.loginService.IsLogged();
     console.log('hello `Home` component');
     this._helper.getMetaService().setTitle('This is a route of Home Component');
     this._helper.getMetaService().setTag('description','Meta description of Home Component 123132131');
+  }
+
+  Logout() {
+    this.loginService.SetLogin(false);
+    alert('Logged out');
   }
 }
