@@ -3,7 +3,7 @@
  */
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
-import { LoginComponent } from './login.component'
+import {LoginComponent} from './login.component'
 import {LoginService} from '../../services/auth/login.service';
 import {CheckLoginGuard} from '../../guards/auth/check-login.guard';
 import {NgModule} from "@angular/core";

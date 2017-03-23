@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/auth/login.service';
 @Component({
   selector: 'home-component',
-  templateUrl: './app/login.component.html'
+  templateUrl: 'login.component.html'
 })
 export class LoginComponent {
   constructor(private router: Router, private loginService: LoginService) {
