@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <base href="/">
+  <title><%= htmlWebpackPlugin.options.title %></title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title><%= htmlWebpackPlugin.options.title %></title>
-
   <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link href="assets/css/heroic-features.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="style.css">
 
   <% if (webpackConfig.htmlElements.headTags) { %>
   <!-- Configured Head Tags  -->
@@ -22,12 +34,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    /*!
- * Copyright (C) 2016 Sergey Akopkokhyants
- * This project is licensed under the terms of the MIT license.
- * https://github.com/akserg/ng2-slim-loading-bar
- */
-
 
     /* Styling for the Slim Loading Progress Bar container */
     .slim-loading-bar {
@@ -83,7 +89,11 @@
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>
   <% } %>
+  <!-- jQuery -->
+  <script src="assets/js/jquery.js"></script>
 
+  <!-- Bootstrap Core JavaScript -->
+  <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
 

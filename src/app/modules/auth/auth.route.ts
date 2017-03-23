@@ -4,6 +4,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 
-export const EmployeeRoutes: Routes = [
+export const AuthRoutes: Routes = [
   { path: 'login', component: LoginComponent },
 ];
