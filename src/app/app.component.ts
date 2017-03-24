@@ -19,26 +19,7 @@ import {NavigationEnd, NavigationStart} from '@angular/router';
     /*require('materialize-css/dist/css/materialize.min.css'),*/
     require('./app.component.css'),
   ],
-  template: `
-   
-
-    <main>
-      <ng2-slim-loading-bar [height]="'4px'"></ng2-slim-loading-bar>
-      <simple-notifications [options]="options"></simple-notifications>
-      <router-outlet></router-outlet>
-    </main>
-
-    <!--<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>-->
-
-    <!--<footer>-->
-      <!--<span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>-->
-      <!--<div>-->
-        <!--<a [href]="url">-->
-          <!--<img [src]="angularclassLogo" width="25%">-->
-        <!--</a>-->
-      <!--</div>-->
-    <!--</footer>-->
-  `
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
