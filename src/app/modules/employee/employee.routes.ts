@@ -9,6 +9,7 @@ import { EmployeeProjectsComponent } from './employee-projects.component'
 import { EmployeeEditComponent } from './employee-edit.component';
 import { EmployeeAddComponent } from './employee-add.component';
 import {CheckLoginGuard} from "../../guards/auth/check-login.guard";
+import {CheckSaveFormGuard} from "../../guards/auth/check-save-form.guard";
 
 export const EmployeeRoutes: Routes = [
   /*{ path: '',      component: EmployeeListComponent,
@@ -19,8 +20,10 @@ export const EmployeeRoutes: Routes = [
     }
   },*/
 
-  { path: 'employees', component: EmployeeListComponent },
-  { path: 'employee-edit/:id', component: EmployeeEditComponent },
+  /*{ path: 'employees', component: EmployeeListComponent, canActivate: [CheckLoginGuard] },
+  { path: 'employee-edit/:id', component: EmployeeEditComponent, canDeactivate: [CheckSaveFormGuard] },*/
+  { path: 'employees', component: EmployeeListComponent},
+   { path: 'employee-edit/:id', component: EmployeeEditComponent},
   { path: 'employee-add', component: EmployeeAddComponent },
   {
     path: 'employee-detail/:id', component: EmployeeDetailComponent,
