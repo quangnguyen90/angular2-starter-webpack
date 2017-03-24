@@ -8,6 +8,7 @@ import { EmployeeOverviewComponent } from './employee-overview.component'
 import { EmployeeProjectsComponent } from './employee-projects.component'
 import { EmployeeEditComponent } from './employee-edit.component';
 import { EmployeeAddComponent } from './employee-add.component';
+import {CheckLoginGuard} from "../../guards/auth/check-login.guard";
 
 export const EmployeeRoutes: Routes = [
   /*{ path: '',      component: EmployeeListComponent,

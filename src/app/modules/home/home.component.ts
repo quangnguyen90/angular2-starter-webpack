@@ -4,6 +4,7 @@ import {AppState} from '../../app.service';
 import {HelperService} from "../../services/helper/helper.service";
 import {Title} from "@angular/platform-browser";
 import { LoginService } from '../../services/auth/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home',  // <home></home>
@@ -24,7 +25,7 @@ export class HomeComponent {
   public isLoggedin: boolean;
 
   // TypeScript public modifiers
-  constructor(public appState: AppState, private _helper: HelperService, private loginService: LoginService) {
+  constructor(public appState: AppState, private _helper: HelperService, private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
@@ -37,5 +38,9 @@ export class HomeComponent {
   Logout() {
     this.loginService.SetLogin(false);
     alert('Logged out');
+  }
+
+  GotoEmployee(){
+    this.router.navigate(['employees']);
   }
 }
