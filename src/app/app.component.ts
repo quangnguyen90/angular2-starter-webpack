@@ -16,7 +16,7 @@ import {NavigationEnd, NavigationStart} from '@angular/router';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styles: [
-    require('materialize-css/dist/css/materialize.min.css'),
+    /*require('materialize-css/dist/css/materialize.min.css'),*/
     require('./app.component.css'),
   ],
   template: `
