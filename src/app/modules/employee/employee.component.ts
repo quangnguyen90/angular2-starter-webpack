@@ -52,4 +52,8 @@ export class EmployeeListComponent implements OnInit {
       console.log(error);
     });
   }
+
+  Home() {
+    this.router.navigate(['']);
+  }
 }
