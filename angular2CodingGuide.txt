@@ -1,0 +1,96 @@
+﻿Angular 2 webpack starter - CRUD Tutorial
+__________________________ FOLDERS STRUCTURE __________________________  
+Angular2-starter-webpack
+(*: folder)
+
+*- config: copy file .env.ts.example to .env.ts --> this file is used to config common variables
+*- src
+		-- index.html --> main html, declare css, js here 
+		-- style.css  --> main css
+		*-- assets   --> add boostrap css, boostrap js, all css/js librariers here
+		*-- app
+			___app.component.css: 	css for layout file
+			___app.component.html: 	html layout file
+			___app.component.ts:	decorators & serivces for layout file
+			___app.module.ts:	import, declare all routes, all component of all module in the project
+			___app.routes.ts:	import, declare all route of all module in the project
+			___app.service.ts:	declare Restful API or some common functions
+			*___guards:		similar interceptor, can use to check login or not, check before & after saving form
+			*___servies:		*___other folders: 	declare common function, restful API
+						*___employee: 		Example for Restful API
+			*___modules:		*___home:	-> Home page
+						*___auth:	-> Authenticate page
+						*___no-content	-> 404 page
+						*___employee	-> CRUD Example		
+-- package.json	: declare all js libraries, dependencies
+
+==========================================================================================================================================
+__________________________ CODING STEP BY STEP with Employee CRUD EXAMPLE__________________________ 
+- Clone/dowload source
+- npm install
+	+ if not run, copy & run this command first: SET PATH=C:\Program Files\Nodejs;%PATH%
+- npm start
+
+*___src/app/services:
+	- Create folder "employee"	--> create file "employee.service.ts"		
+						+ Declare Restfull API
+
+*___src/app/modules:
+	- Create folder: "employee"	--> create file "employee.component.html"	
+						+ VIEW LIST/SEARCH/PAGINATOR/DELETE - GET/DELETE, Main HTML file of the module
+					
+					--> create file "employee.component.ts"		
+						+ Dedecorators & serivces for employee module, template main-employee here
+					
+					--> create file "employee.modules.ts"		
+						+ Import other component files of "employee" module
+					
+					--> create file "employee.routes.ts"		
+						+ Declare all routes to all components of "employee" module
+					
+					--> create file "employee-add.component.html"	
+						+ ADD - POST
+					
+					--> create file	"employee-add.componenent.ts"	
+						+ Dedecorators & serivces for add employee, template add-employee here
+					
+					--> create file "employee-edit.component.html"	
+						+ EDIT - PUT
+					
+					--> create file	"employee-edit.componenent.ts"	
+						+ Dedecorators & serivces for edit employee, template edit-employee here
+					
+					--> create file "employee-detail.component.html" 
+						+ DETAIL - GET
+					
+					--> create file	"employee-detail.componenent.ts" 
+						+ Dedecorators & serivces for detail employee, template add-employee here
+					
+					--> create file	"employee-overviews.componenent.ts" 
+						+ Dedecorators & serivces for overview employee, CHILD ROUTE					
+					
+					--> create file	"employee-projects.componenent.ts" 
+						+ Dedecorators & serivces for viewing project of employee, CHILD ROUTE	
+					
+					--> import all component to file "employee.module.ts"
+					
+					--> import all component to file "employee.routes.ts"
+
+*___src/app/guards/auth			--> create file "check-save-form.guards.ts"	 
+						+ check save form before & after saving a form
+					
+					--> create file "check-loging.guards.ts"	 
+						+ check login or not
+
+*___src/app/modules/emoloyee		--> can/no need import "check-save-form.guards.ts", "check-loging.guards.ts" to "employee.module.ts" & "employee.routes.ts"
+
+*___src/app:
+	- import "employee.modules.ts" to file "app.module.ts"
+	- import "employee.routes.ts" to file "app.module.ts"
+	- import "employee.routes.ts" to file "app.routes.ts"
+
+Finally, run & check the website
+
+
+							______ FROM Vietnam with love - Quang Nguyen Phu - Mar-2017_______
+					
