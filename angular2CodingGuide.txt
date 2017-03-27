@@ -31,12 +31,16 @@ __________________________ CODING STEP BY STEP with Employee CRUD EXAMPLE_______
 	+ if not run, copy & run this command first: SET PATH=C:\Program Files\Nodejs;%PATH%
 - npm start
 
+___With this example, pls view source each file for more information___
+
 *___src/app/services:
-	- Create folder "employee"	--> create file "employee.service.ts"		
+	- Create folder "employee"	
+					--> create file "employee.service.ts"		
 						+ Declare Restfull API
 
 *___src/app/modules:
-	- Create folder: "employee"	--> create file "employee.component.html"	
+	- Create folder: "employee"	
+					--> create file "employee.component.html"	
 						+ VIEW LIST/SEARCH/PAGINATOR/DELETE - GET/DELETE, Main HTML file of the module
 					
 					--> create file "employee.component.ts"		
@@ -76,13 +80,15 @@ __________________________ CODING STEP BY STEP with Employee CRUD EXAMPLE_______
 					
 					--> import all component to file "employee.routes.ts"
 
-*___src/app/guards/auth			--> create file "check-save-form.guards.ts"	 
+*___src/app/guards/auth			
+					--> create file "check-save-form.guards.ts"	 
 						+ check save form before & after saving a form
 					
 					--> create file "check-loging.guards.ts"	 
 						+ check login or not
 
-*___src/app/modules/emoloyee		--> can/no need import "check-save-form.guards.ts", "check-loging.guards.ts" to "employee.module.ts" & "employee.routes.ts"
+*___src/app/modules/emoloyee		
+					--> can/no need import "check-save-form.guards.ts", "check-loging.guards.ts" to "employee.module.ts" & "employee.routes.ts"
 
 *___src/app:
 	- import "employee.modules.ts" to file "app.module.ts"
@@ -92,5 +98,5 @@ __________________________ CODING STEP BY STEP with Employee CRUD EXAMPLE_______
 Finally, run & check the website
 
 
-							______ FROM Vietnam with love - Quang Nguyen Phu - Mar-2017_______
+______ FROM Vietnam with love - Quang Nguyen Phu - Mar-2017_______
 					
